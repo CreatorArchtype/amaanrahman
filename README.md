@@ -26,7 +26,7 @@ Just plain HTML, CSS (via Tailwind CDN), and a bit of JavaScript — so anyone c
 ## 📁 Folder Structure
 ```text
 .
-portfolio/
+
 ├── index.html # Homepage
 ├── projects.html # Projects page
 │
