@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects — Amaan Rahman</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/favicon-32.png?v=1">
+
+    <!-- Inter font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                },
+            },
+        }
+    </script>
+
+    <style>
+        .cursor {
+            display: inline-block;
+            width: 0.6ch;
+            animation: blink 1s steps(1) infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-[#0b0b0c] text-white font-sans min-h-screen">
+
+    <!-- TOP BAR -->
+    <div class="flex justify-between items-center px-10 pt-6 pb-4 text-sm">
+
+        <a href="index.html" class="opacity-70 hover:opacity-100 transition">
+            ← Back
+        </a>
+
+        <div class="opacity-90">
+            Projects
+        </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="mx-10 border-b border-dashed border-[#2a2a2a]"></div>
+
+    <!-- HERO TYPEWRITER -->
+    <div class="flex items-center justify-center text-center" style="height: calc(100vh - 140px);">
+
+        <div class="text-[120px] font-normal tracking-wide flex items-center">
+            <span id="project-text"></span>
+            <span class="cursor">|</span>
+        </div>
+
+    </div>
+
+    <!-- PROJECT STATEMENT -->
+    <main class="max-w-5xl mx-auto px-10 pb-24 text-left">
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+
+            <!-- TEXT -->
+            <div class="text-[25px] leading-relaxed space-y-6 text-[#eaeaea]">
+
+                <p>
+                    As a Mathematics and Computing student, I sit at the intersection of abstract
+                    theory and practical execution. I am driven by the challenge of translating
+                    complex mathematical methodologies into robust, scalable computational tools.
+                </p>
+
+                <p>
+                    My work focuses on bridging this gap through hands-on projects—transforming
+                    rigorous logic into functional code to solve real-world problems. I am
+                    constantly seeking new ways to implement advanced algorithms and data
+                    structures to push the boundaries of what is computationally possible.
+                </p>
+
+                <p>
+                    For a comprehensive overview of these implementations and their underlying
+                    methodologies, please engage with the individual project modules provided below.
+                </p>
+
+            </div>
+
+            <!-- GIF -->
+            <div class="w-full">
+                <img src="assets/graph.gif" alt="Mathematical visualization"
+                    class="w-full rounded-xl border border-[#2a2a2a]" />
+            </div>
+
+        </div>
+    </main>
+
+    <!-- PROJECT BUTTONS -->
+    <section class="max-w-2xl mx-auto px-10 pb-32">
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+
+            <!-- MONTE CARLO -->
+            <a href="https://github.com/CreatorArchtype/Monte_Carlo_Visualisation-" target="_blank" class="group block overflow-hidden rounded-xl border border-[#2a2a2a]
+               transition-transform duration-300 hover:scale-[1.02]">
+
+                <img src="assets/montecarlo.png" alt="Monte Carlo Pi Estimation" class="w-full h-full object-cover opacity-90
+                     group-hover:opacity-100 transition-opacity duration-300" />
+            </a>
+
+            <!-- POLYNOMIAL -->
+            <a href="https://github.com/CreatorArchtype/Polynomial_Regression_and_Visualization" target="_blank" class="group block overflow-hidden rounded-xl border border-[#2a2a2a]
+               transition-transform duration-300 hover:scale-[1.02]">
+
+                <img src="assets/polynomial.png" alt="Polynomial Regression Visualization" class="w-full h-full object-cover opacity-90
+                     group-hover:opacity-100 transition-opacity duration-300" />
+            </a>
+
+        </div>
+    </section>
+
+    <!-- FOOTNOTE -->
+    <div class="text-center text-sm opacity-50 pb-10">
+        Work · Mathematics · Computing · Visualisation
+    </div>
+
+    <!-- TYPEWRITER SCRIPT -->
+    <script>
+        const messages = [
+            { text: "Projects", color: "#ffffff" },
+            { text: "README.md", color: "#00FF00" },
+            { text: "Conda activate env", color: "#ED80E9" }
+        ];
+
+        const textEl = document.getElementById("project-text");
+
+        let messageIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        const typingSpeed = 95;
+        const deletingSpeed = 60;
+        const holdAfterTyping = 1200;
+
+        function loop() {
+            const current = messages[messageIndex];
+            textEl.style.color = current.color;
+
+            if (!isDeleting) {
+                textEl.textContent = current.text.slice(0, charIndex++);
+                if (charIndex > current.text.length) {
+                    setTimeout(() => isDeleting = true, holdAfterTyping);
+                }
+            } else {
+                textEl.textContent = current.text.slice(0, charIndex--);
+                if (charIndex < 0) {
+                    isDeleting = false;
+                    messageIndex = (messageIndex + 1) % messages.length;
+                }
+            }
+
+            setTimeout(loop, isDeleting ? deletingSpeed : typingSpeed);
+        }
+
+        loop();
+    </script>
+
+</body>
+
+</html>
