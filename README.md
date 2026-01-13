@@ -29,7 +29,6 @@ Just plain HTML, CSS (via Tailwind CDN), and a bit of JavaScript — so anyone c
 portfolio/
 ├── index.html # Homepage
 ├── projects.html # Projects page
-├── blogs.html # Blogs page (if present)
 │
 ├── assets/ # All images, GIFs, videos, icons
 │ ├── graph.gif
